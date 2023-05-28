@@ -1,0 +1,4 @@
+virtualenv flask1
+D:\Work\Python\Flask_FYP\flask1\Scripts\activate.bat
+pip install flask flask-sqlalchemy
+pip install tensorflow==2.12.0
