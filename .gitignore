@@ -4,4 +4,6 @@ flask1/
 
 test_data/
 
-*.txt
+documentation.txt
+
+github docs.txt
