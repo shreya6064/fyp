@@ -1,3 +1,7 @@
-assets
-flask1
+assets/
+
+flask1/
+
+test_data/
+
 *.txt
