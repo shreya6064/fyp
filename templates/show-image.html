@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+
+<title>Image Analysis</title>
+
+{% endblock %}
+
+
+{% block body %}
+<h1>Upload and display image in Flask</h1>
+<p>flask display image from uploaded folder</p>
+
+<img src="{{ user_image }}" alt="Italian Trulli" width="500" height="400">
+
+{% endblock %}
+
