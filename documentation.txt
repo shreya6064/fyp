@@ -2,3 +2,13 @@ virtualenv flask1
 D:\Work\Python\Flask_FYP\flask1\Scripts\activate.bat
 pip install flask flask-sqlalchemy
 pip install tensorflow==2.12.0
+
+git init
+git add .
+git commit -m "Adding project"
+
+
+
+git remote add origin https://github.com/shreya6064/fyp.git
+
+git push -u -f origin master
