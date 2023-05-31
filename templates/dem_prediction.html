@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+
+<title>Demographic Model</title>
+<style>
+    table {
+        width: 50%;  /* Adjust as needed */
+        margin: 0 auto;    /* Centers the table */
+        border-collapse: collapse;
+    }
+    
+    table, th, td {
+        border: 1px solid rgb(167, 167, 167);
+    }
+    
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      
+      
+      <h2 >Demographic <span>Model</span></h2>
+
+
+
+    
+
+{% if dem_pred is not none %}
+  <p  style = "color: rgb(0, 0, 0); font-size: 25px; padding: 30px; background-color: #fde9f2; border-radius: 15px; margin-top: 50px;">Prediction: <span style = "color:#cc1571">{{ dem_pred }}</span></p>
+{% endif %}
+
+<table>
+    <!-- <thead>
+        <tr>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+    </thead> -->
+    <tbody>
+        <tr>
+            <td>Follicle No (R)</td>
+            <td>{{ form_data['follicle_r'] }}</td>
+        </tr>
+        <tr>
+            <td>Follicle No (L)</td>
+            <td>{{ form_data['follicle_l'] }}</td>
+        </tr>
+        <tr>
+            <td>Hair Growth</td>
+            <td>{{ form_data['hair_growth'] }}</td>
+        </tr>
+        <tr>
+            <td>Skin Darkening</td>
+            <td>{{ form_data['skin_darkening'] }}</td>
+        </tr>
+        <tr>
+            <td>Weight Gain</td>
+            <td>{{ form_data['weight_gain'] }}</td>
+        </tr>
+        <tr>
+            <td>Cycle</td>
+            <td>{{ form_data['cycle'] }}</td>
+        </tr>
+        <tr>
+            <td>Fast Food</td>
+            <td>{{ form_data['fast_food'] }}</td>
+        </tr>
+        <tr>
+            <td>BMI</td>
+            <td>{{ form_data['bmi'] }}</td>
+        </tr>
+        <tr>
+            <td>Pimples</td>
+            <td>{{ form_data['pimples'] }}</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>{{ form_data['weight'] }} kg</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+      
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+
+
+
+
+  <!-- Vendor JS Files -->
+
+
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %}
+
+{% block footer %} 
+<!-- <a href="/" style="display: block;
+text-align: center;">Home</a> -->
+{% endblock %}

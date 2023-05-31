@@ -8,10 +8,14 @@ from PIL import Image
 import os
 import pathlib
 import numpy as np
+import pickle
 
 UPLOAD_FOLDER = 'static/uploads/'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
+LOADED_MODEL = ""
+with open("demographic_model_2.pkl", "rb") as file:
+        LOADED_MODEL = pickle.load(file)
 
 
 app = Flask(__name__)
@@ -126,7 +130,27 @@ def gene_expression():
 def demographic_predict(follicle_r, follicle_l, hair_growth, skin_darkening, weight_gain, cycle, fast_food, bmi, pimples, weight):
     # Currently, this function just returns 6 as a placeholder.
     # You should replace this with your actual prediction code.
-    return 6
+
+    # Load the random forest classifier model
+    
+    #n1 = np.array((44.6, 19.3, 2, 0, 0, 0, 0, 1, 3, 3))
+    #n1 = np.array((68.8, 25.27, 2, 0, 0, 0, 1, 1, 13, 15))
+    if cycle == True:
+        cycle=2
+    else:
+        cycle=4
+
+    n1 = np.array((float(weight), float(bmi), int(cycle), float(bool(weight_gain)), float(bool(hair_growth)), float(bool(skin_darkening)), float(bool(pimples)), float(bool(fast_food)), int(follicle_l), int(follicle_r)))
+
+
+    # Use the loaded model for predictions
+    prediction = LOADED_MODEL.predict(n1.reshape(1,-1))[0]
+    #predictions[0]
+    #return 6
+    if prediction == 0:
+        return "PCOS Not Detected"
+    
+    return "PCOS Detected"
 
 
 
@@ -146,10 +170,32 @@ def demographic():
         pimples = request.form['pimples']
         weight = request.form['weight']
 
+        parameters = {"follicle_r" : follicle_r, 
+                      "follicle_l" : follicle_l,
+                      }
         dem_pred = demographic_predict(follicle_r, follicle_l, hair_growth, skin_darkening, weight_gain, cycle, fast_food, bmi, pimples, weight)
-    return render_template('demographic.html', dem_pred=dem_pred)
+        return render_template('dem_prediction.html', dem_pred=dem_pred, form_data=request.form)
 
-    #return render_template("demographic.html")
+    return render_template("demographic.html", form_data=request.form)
+
+
+@app.route("/test")
+def test():
+    form_data = {
+    "follicle_r": 12,
+    "follicle_l": 10,
+    "hair_growth": "Yes",
+    "skin_darkening": "No",
+    "weight_gain": "Yes",
+    "cycle": 28,
+    "fast_food": "No",
+    "bmi": 22.5,
+    "pimples": "Yes",
+    "weight": 65.0
+}
+
+
+    return render_template('dem_prediction.html', dem_pred="PCOS Detected", form_data=form_data)
 
 
 if __name__=="__main__":

@@ -40,12 +40,12 @@
       <h2 >Demographic <span>Model</span></h2>
 
 
-      <h3 style =  "padding: 15px; color: rgb(156, 156, 156);">Fill in your health information</h3>
+      <h3 style =  "padding: 15px">Fill in your health information</h3>
 
 
 <div class="form-container">
 
-    <form id="demForm" method="POST">
+    <form id="demForm" method="POST" onsubmit="submitForm()">
         <div class="form-item">
             <label for="follicle_r">Follicle No (R):</label>
             <div class="input-field">
@@ -86,13 +86,11 @@
         </div>
 
         <div class="form-item">
-            <label for="cycle">Regular Cycle:</label>
+            <label for="cycle">Cycle:</label>
             <div class="input-field">
-                Yes<input type="radio" id="cycle_yes" name="cycle" value=True>
-                No<input type="radio" id="cycle_no" name="cycle" value=False>
+                <input type="number" id="cycle" name="cycle" value="{{ form_data['cycle'] }}">
             </div>
         </div>
-
 
         <div class="form-item">
             <label for="fast_food">Fast Food:</label>
@@ -137,10 +135,19 @@
 
 
 
-    
+    <div id="loading" style="display: none;">
+        <!-- Add your loading animation here -->
+        <p>Loading...</p>
+    </div>
 
 
-    
+    <script>
+        function submitForm() {
+            document.getElementById("demForm").style.display = "none";
+            document.getElementById("loading").style.display = "block";
+        }
+    </script>
+
 <!-- {% if dem_pred is not none %}
   <p  style = "color: black; font-size: 20px">Prediction: {{ dem_pred }}</p>
 {% endif %} -->
