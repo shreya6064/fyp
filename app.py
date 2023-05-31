@@ -120,5 +120,37 @@ def gene_expression():
     return render_template("gene-expression.html")
 
 
+
+
+
+def demographic_predict(follicle_r, follicle_l, hair_growth, skin_darkening, weight_gain, cycle, fast_food, bmi, pimples, weight):
+    # Currently, this function just returns 6 as a placeholder.
+    # You should replace this with your actual prediction code.
+    return 6
+
+
+
+
+@app.route("/demographic-model",  methods=['GET', 'POST'])
+def demographic():
+    dem_pred = None
+    if request.method == 'POST':
+        follicle_r = request.form['follicle_r']
+        follicle_l = request.form['follicle_l']
+        hair_growth = request.form['hair_growth']
+        skin_darkening = request.form['skin_darkening']
+        weight_gain = request.form['weight_gain']
+        cycle = request.form['cycle']
+        fast_food = request.form['fast_food']
+        bmi = request.form['bmi']
+        pimples = request.form['pimples']
+        weight = request.form['weight']
+
+        dem_pred = demographic_predict(follicle_r, follicle_l, hair_growth, skin_darkening, weight_gain, cycle, fast_food, bmi, pimples, weight)
+    return render_template('demographic.html', dem_pred=dem_pred)
+
+    #return render_template("demographic.html")
+
+
 if __name__=="__main__":
     app.run(debug=True)

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    .form-container {
+        margin-left: 2em;
+        width: 30em;
+    }
+    .form-container p {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 1em;
+    }
+    .form-container label {
+        margin-right: 1em;
+    }
+    .form-container .input-container {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .form-container .input-container label {
+        display: flex;
+        align-items: center;
+    }
+</style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Fill in your health information</h1>
+    <form method="POST">
+        <p><label for="follicle_r">Follicle No (R):</label> <input type="number" id="follicle_r" name="follicle_r"></p>
+        <p><label for="follicle_l">Follicle No (L):</label> <input type="number" id="follicle_l" name="follicle_l"></p>
+        <p><label for="hair_growth">Hair Growth:</label>
+        <div class="input-container">
+            <label for="hair_growth_yes"><input type="radio" id="hair_growth_yes" name="hair_growth" value=True> Yes</label>
+            <label for="hair_growth_no"><input type="radio" id="hair_growth_no" name="hair_growth" value=False> No</label>
+        </div></p>
+        <p><label for="skin_darkening">Skin Darkening:</label>
+        <div class="input-container">
+            <label for="skin_darkening_yes"><input type="radio" id="skin_darkening_yes" name="skin_darkening" value=True> Yes</label>
+            <label for="skin_darkening_no"><input type="radio" id="skin_darkening_no" name="skin_darkening" value=False> No</label>
+        </div></p>
+        <p><label for="weight_gain">Weight Gain:</label>
+        <div class="input-container">
+            <label for="weight_gain_yes"><input type="radio" id="weight_gain_yes" name="weight_gain" value=True> Yes</label>
+            <label for="weight_gain_no"><input type="radio" id="weight_gain_no" name="weight_gain" value=False> No</label>
+        </div></p>
+        <p><label for="cycle">Cycle:</label> <input type="number" id="cycle" name="cycle"></p>
+        <p><label for="fast_food">Fast Food:</label>
+        <div class="input-container">
+            <label for="fast_food_yes"><input type="radio" id="fast_food_yes" name="fast_food" value=True> Yes</label>
+            <label for="fast_food_no"><input type="radio" id="fast_food_no" name="fast_food" value=False> No</label>
+        </div></p>
+        <p><label for="bmi">BMI:</label> <input type="text" id="bmi" name="bmi"></p>
+        <p><label for="pimples">Pimples:</label>
+        <div class="input-container">
+            <label for="pimples_yes"><input type="radio" id="pimples_yes" name="pimples" value=True> Yes</label>
+            <label for="pimples_no"><input type="radio" id="pimples_no" name="pimples" value=False> No</label>
+        </div></p>
+        <p><label for="weight">Weight:</label> <input type="text" id="weight" name="weight"></p>
+        <input type="submit" value="Submit">
+    </form>
+    {% if prediction is not none %}
+        <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+</div>
+</body>
+</html>

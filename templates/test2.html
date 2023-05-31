@@ -1,0 +1,44 @@
+<!doctype html>
+<title>Health Information</title>
+<h1>Fill in your health information</h1>
+<form method="POST">
+  <p>Follicle No (R): <input type="number" name="follicle_r"></p>
+  <p>Follicle No (L): <input type="number" name="follicle_l"></p>
+  <p>Hair Growth: 
+    <input type="radio" id="hair_growth_yes" name="hair_growth" value=True>
+    <label for="hair_growth_yes">Yes</label>
+    <input type="radio" id="hair_growth_no" name="hair_growth" value=False>
+    <label for="hair_growth_no">No</label>
+  </p>
+  <p>Skin Darkening:
+    <input type="radio" id="skin_darkening_yes" name="skin_darkening" value=True>
+    <label for="skin_darkening_yes">Yes</label>
+    <input type="radio" id="skin_darkening_no" name="skin_darkening" value=False>
+    <label for="skin_darkening_no">No</label>
+  </p>
+  <p>Weight Gain:
+    <input type="radio" id="weight_gain_yes" name="weight_gain" value=True>
+    <label for="weight_gain_yes">Yes</label>
+    <input type="radio" id="weight_gain_no" name="weight_gain" value=False>
+    <label for="weight_gain_no">No</label>
+  </p>
+  <p>Cycle: <input type="number" name="cycle"></p>
+  <p>Fast Food:
+    <input type="radio" id="fast_food_yes" name="fast_food" value=True>
+    <label for="fast_food_yes">Yes</label>
+    <input type="radio" id="fast_food_no" name="fast_food" value=False>
+    <label for="fast_food_no">No</label>
+  </p>
+  <p>BMI: <input type="text" name="bmi"></p>
+  <p>Pimples:
+    <input type="radio" id="pimples_yes" name="pimples" value=True>
+    <label for="pimples_yes">Yes</label>
+    <input type="radio" id="pimples_no" name="pimples" value=False>
+    <label for="pimples_no">No</label>
+  </p>
+  <p>Weight: <input type="text" name="weight"></p>
+  <input type="submit" value="Submit">
+</form>
+{% if prediction is not none %}
+  <p>Prediction: {{ prediction }}</p>
+{% endif %}

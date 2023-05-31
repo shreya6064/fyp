@@ -2,14 +2,58 @@
 
 {% block head %} 
 
-<h1> Gene Expression </h1>
-<p>this page will talk about the gene stuff</p>
-
-
-
-<a href="/">home</a>
+<title>Gene Expression</title>
 
 {% endblock %}
 
-{% block body %} {% endblock %}
 
+{% block body %}
+
+
+<section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      
+      
+      <h2 >Gene <span>Expression</span></h2>
+
+      <!-- <h3 style =  "padding: 20px">Select file to upload</h3> -->
+      
+
+      
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+
+
+
+  <!-- <link href="{{ url_for('static', filename='css/variables.css') }}" rel="stylesheet"> -->
+
+  <!-- Vendor JS Files -->
+
+
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %}
+
+{% block footer %} 
+<!-- <a href="/" style="display: block;
+text-align: center;">Home</a> -->
+{% endblock %}

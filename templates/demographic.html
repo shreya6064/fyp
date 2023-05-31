@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+
+<title>Demographic Model</title>
+<style>
+    .form-container {
+        margin-left: 2em;
+        width: 30em;
+    }
+    .form-container .form-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1em;
+    }
+    .form-container label {
+        flex: 1;
+    }
+    .form-container .input-field {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .form-container .input-field input[type="text"], 
+    .form-container .input-field input[type="number"] {
+        width: 50%;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+
+
+<section id="hero-animated" class="hero-animated d-flex align-items-center">
+    <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
+      
+      
+      <h2 >Demographic <span>Model</span></h2>
+
+
+      <h3 style =  "padding: 15px">Fill in your health information</h3>
+
+
+<div class="form-container">
+
+    <form method="POST">
+        <div class="form-item">
+            <label for="follicle_r">Follicle No (R):</label>
+            <div class="input-field">
+                <input type="number" id="follicle_r" name="follicle_r">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="follicle_l">Follicle No (L):</label>
+            <div class="input-field">
+                <input type="number" id="follicle_l" name="follicle_l">
+            </div>
+        </div>
+        <div class="form-item">
+            <label for="hair_growth">Hair Growth:</label>
+            <div class="input-field">
+                Yes<input type="radio" id="hair_growth_yes" name="hair_growth" value=True>
+                No<input type="radio" id="hair_growth_no" name="hair_growth" value=False>
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="skin_darkening">Skin Darkening:</label>
+            <div class="input-field">
+                Yes<input type="radio" id="skin_darkening_yes" name="skin_darkening" value=True>
+                No<input type="radio" id="skin_darkening_no" name="skin_darkening" value=False>
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="weight_gain">Weight Gain:</label>
+            <div class="input-field">
+                Yes<input type="radio" id="weight_gain_yes" name="weight_gain" value=True>
+                No<input type="radio" id="weight_gain_no" name="weight_gain" value=False>
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="cycle">Cycle:</label>
+            <div class="input-field">
+                <input type="number" id="cycle" name="cycle">
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="fast_food">Fast Food:</label>
+            <div class="input-field">
+                Yes<input type="radio" id="fast_food_yes" name="fast_food" value=True>
+                No<input type="radio" id="fast_food_no" name="fast_food" value=False>
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="bmi">BMI:</label>
+            <div class="input-field">
+                <input type="text" id="bmi" name="bmi">
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="pimples">Pimples:</label>
+            <div class="input-field">
+                Yes<input type="radio" id="pimples_yes" name="pimples" value=True>
+                No<input type="radio" id="pimples_no" name="pimples" value=False>
+            </div>
+        </div>
+        <!-- ...repeat for each form field... -->
+        <div class="form-item">
+            <label for="weight">Weight:</label>
+            <div class="input-field">
+                <input type="text" id="weight" name="weight">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="input-field">
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+
+<!-- {% if dem_pred is not none %}
+  <p>Prediction: {{ dem_pred }}</p>
+{% endif %} -->
+
+<p style = "color: black; font-size = 20px">Prediction: PCOS Not Detected</p>
+      
+
+    </div>
+  </section>
+
+
+
+
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+
+
+
+  <!-- <link href="{{ url_for('static', filename='css/variables.css') }}" rel="stylesheet"> -->
+
+  <!-- Vendor JS Files -->
+
+
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='php-email-form/validate.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+{% endblock %}
+
+{% block footer %} 
+<!-- <a href="/" style="display: block;
+text-align: center;">Home</a> -->
+{% endblock %}

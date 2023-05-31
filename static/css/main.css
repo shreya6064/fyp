@@ -556,17 +556,18 @@ section {
 /*--------------------------------------------------------------
 # Animated Hero Section
 --------------------------------------------------------------*/
-.hero-animated {
+/* .hero-animated {
   width: 100%;
   min-height: 50vh;
   background: url("../img/hero-bg.png") center center;
   background-size: cover;
   position: relative;
   padding: 120px 0 60px;
-}
+  padding: 0 0 0;
+} */
 
 .hero-animated h2 {
-  margin: 0 0 10px 0;
+  margin: 0 0 0 0;
   font-size: 48px;
   font-weight: 300;
   color: var(--color-secondary);
@@ -616,6 +617,7 @@ section {
   transition: 0.5s;
   color: var(--color-white);
   background: var(--color-primary);
+  
   font-family: var(--font-secondary);
 }
 
